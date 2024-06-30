@@ -30,6 +30,6 @@ function chatbot_manager_messages_page() {
 
 // Ensure the list table class is included
 if (!class_exists('Chatbot_Manager_List_Table')) {
-    include_once(plugin_dir_path(__FILE__) . 'includes/class-chatbot-manager-list-table.php');
+    include_once(plugin_dir_path(__FILE__) . 'class-chatbot-manager-list-table.php');
 }
 ?>
