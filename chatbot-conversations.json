@@ -1,0 +1,60 @@
+{
+  "1": {
+    "group_name": "Group Name 1",
+    "conversations": [
+      {
+        "conversation_id": 1,
+        "conversation_name": "Conversation Name 1",
+        "messages": [
+          {
+            "message_id": 1,
+            "sender": "user",
+            "text": "Hello there!"
+          },
+          {
+            "message_id": 2,
+            "sender": "chatbot",
+            "text": "Hello to you!"
+          }
+        ]
+      },
+      {
+        "conversation_id": 2,
+        "conversation_name": "Conversation Name 2",
+        "messages": [
+          {
+            "message_id": 1,
+            "sender": "user",
+            "text": "Hello there 2!"
+          },
+          {
+            "message_id": 2,
+            "sender": "chatbot",
+            "text": "Hello to you 2!"
+          }
+        ]
+      }
+    ]
+  },
+  "2": {
+    "group_name": "Group Name 2",
+    "conversations": [
+      {
+        "conversation_id": 1,
+        "conversation_name": "g2 Conversation Name 1",
+        "messages": [
+          {
+            "message_id": 1,
+            "sender": "user",
+            "text": "g2Hello there!"
+          },
+          {
+            "message_id": 2,
+            "sender": "chatbot",
+            "text": "g2 Hello to you!"
+          }
+        ]
+      }
+    ]
+  }
+}
