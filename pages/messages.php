@@ -3,7 +3,7 @@ function chatbot_manager_get_messages($group_id, $conversation_id) {
     $file_path = plugin_dir_path(__FILE__) . '../chatbot-conversations.json';
     if (file_exists($file_path)) {
         $json_data = json_decode(file_get_contents($file_path), true);
-        if (isset($json_data[$group_id]['conversations'][$conversation_id])) {
+        if (isset($json_data[$group_id]['conversations'][$conversation_id]['messages'])) {
             $messages = array();
             foreach ($json_data[$group_id]['conversations'][$conversation_id]['messages'] as $message_id => $message) {
                 $messages[] = array('name' => $message['text'], 'id' => $message_id);
@@ -29,6 +29,7 @@ function chatbot_manager_save_message() {
 
     if (!empty($group_id) && !empty($conversation_id) && !empty($message_id) && !empty($sender) && !empty($text)) {
         $json_data[$group_id]['conversations'][$conversation_id]['messages'][$message_id] = array(
+            'message_id' => $message_id,
             'sender' => $sender,
             'text' => $text
         );

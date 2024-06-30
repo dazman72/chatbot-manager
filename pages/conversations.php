@@ -3,7 +3,7 @@ function chatbot_manager_get_conversations($group_id) {
     $file_path = plugin_dir_path(__FILE__) . '../chatbot-conversations.json';
     if (file_exists($file_path)) {
         $json_data = json_decode(file_get_contents($file_path), true);
-        if (isset($json_data[$group_id])) {
+        if (isset($json_data[$group_id]['conversations'])) {
             $conversations = array();
             foreach ($json_data[$group_id]['conversations'] as $conversation_id => $conversation) {
                 $conversations[] = array('name' => $conversation['conversation_name'], 'id' => $conversation_id);
@@ -26,7 +26,11 @@ function chatbot_manager_save_conversation() {
     $conversation_name = $_POST['conversation_name'];
 
     if (!empty($group_id) && !empty($conversation_id) && !empty($conversation_name)) {
-        $json_data[$group_id]['conversations'][$conversation_id]['conversation_name'] = $conversation_name;
+        $json_data[$group_id]['conversations'][$conversation_id] = array(
+            'conversation_id' => $conversation_id,
+            'conversation_name' => $conversation_name,
+            'messages' => array()
+        );
         file_put_contents($file_path, json_encode($json_data, JSON_PRETTY_PRINT));
         wp_redirect(admin_url('admin.php?page=chatbot-manager-conversations&group_id=' . $group_id));
         exit;

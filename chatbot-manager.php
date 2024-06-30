@@ -27,6 +27,9 @@ function chatbot_manager_conversations_page() {
 function chatbot_manager_messages_page() {
     include_once(plugin_dir_path(__FILE__) . 'pages/messages.php');
 }
-?>
 
+// Ensure the list table class is included
+if (!class_exists('Chatbot_Manager_List_Table')) {
+    include_once(plugin_dir_path(__FILE__) . 'includes/class-chatbot-manager-list-table.php');
+}
 ?>

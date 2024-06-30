@@ -24,6 +24,17 @@ class Chatbot_Manager_List_Table extends WP_List_Table {
         }
     }
 
+    public function column_name($item) {
+        if (isset($item['id'])) {
+            $url = add_query_arg(array(
+                'page' => 'chatbot-manager-conversations',
+                'group_id' => $item['id']
+            ), admin_url('admin.php'));
+            return sprintf('<a href="%s">%s</a>', esc_url($url), $item['name']);
+        }
+        return $item['name'];
+    }
+
     public function get_columns() {
         $columns = array(
             'name' => __('Name', 'sp'),
